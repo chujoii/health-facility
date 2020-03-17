@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv=content-type content="text/html; charset=utf-8">
+		<script type="application/javascript" src="vue.js"></script>
+		<script type="application/javascript" src="registry.js" defer></script> <!-- defer: script is executed when the page has finished parsing -->
+		<link rel="stylesheet" type="text/css" href="registry.css">
+	</head>
+	<body>
+		<div id="doc_time">
+			<table>
+				<tr>
+					<th>врач</th>
+					<th colspan="4">время</th> <!-- fixme: colspan -->
+				</tr>
+				<tr v-for="(doc, id_x) in doctors">
+					<td>
+						{{doc.name}}
+					</td>
+					<td v-for="(tim, id_y) in doc.timetable">
+						<input type="radio" v-model="picked" :value="'' + id_x + ':' + id_y" /> 
+						<label for=doctors[id_x][id_y]>{{tim}}</label>
+					</td>
+				</tr>
+			</table>
+			Выбрано: {{ picked }}
+		</div>
+	</body>
+</html>
