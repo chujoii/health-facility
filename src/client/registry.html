@@ -9,22 +9,7 @@
 	</head>
 	<body>
 		<div id="doc_time">
-			<table>
-				<tr>
-					<th>врач</th>
-					<th colspan="4">время</th> <!-- fixme: colspan -->
-				</tr>
-				<tr v-for="(doc, id_x) in doctors">
-					<td>
-						{{doc.name}}
-					</td>
-					<td v-for="(tim, id_y) in doc.timetable">
-						<input type="radio" v-model="picked" :value="'' + id_x + ':' + id_y" /> 
-						<label for=doctors[id_x][id_y]>{{tim}}</label>
-					</td>
-				</tr>
-			</table>
-			Выбрано: {{ picked }}
+			<tab-dt title="test" v-bind:doctors="get_doc_time()"></tab-dt>
 		</div>
 	</body>
 </html>
