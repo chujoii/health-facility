@@ -14,6 +14,26 @@ th {
 	color: white;
 }
 
+.left {
+	width: 30%;
+	float: left;
+	text-align: right;
+}
+
+.right {
+	width: 65%;
+	margin-left: 10px;
+	float: left;
+}
+
+ul {
+	list-style-type: none;
+}
+
+input[type="text"] {
+	width: 65%;
+}
+
 fieldset {
 	background-color: #ffffff;
 	border: #4CAF50 1px solid;
