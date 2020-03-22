@@ -24,14 +24,23 @@ Vue.component("tab-dt", {
 					</td> \
 				</tr> \
 			</table> \
-			Выбрано: {{ picked }} <br/> \
+			Выбрано: {{ picked }} \
+			<button v-if="picked!==''" v-on:click="$emit('checkin', picked)">Записаться</button> \
 		</div> \
 `
 });
 
-new Vue({
+var appdt = new Vue({
 	el: '#doc_time',
+	data: {
+		seen: true,
+	},
 	methods: {
-		get_doc_time: function () {return array_doctor_time;}
+		get_doc_time: function () {return array_doctor_time;},
+		do_checkin: function (selected) {
+			console.log(selected);
+			this.seen = false;
+			appui.seen = true;
+		}
 	}
 });

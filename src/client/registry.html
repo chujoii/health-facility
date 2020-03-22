@@ -8,8 +8,13 @@
 		<link rel="stylesheet" type="text/css" href="registry.css">
 	</head>
 	<body>
-		<div id="doc_time">
-			<tab-dt title="test" v-bind:doctors="get_doc_time()"></tab-dt>
-		</div>
+		<fieldset id="doc_time" v-if="seen">
+			<legend>Выбор врача и времени</legend>
+			<tab-dt title="шаг №1"
+				v-bind:doctors="get_doc_time()"
+				v-on:checkin="do_checkin"
+				>
+			</tab-dt>
+		</fieldset>
 	</body>
 </html>
