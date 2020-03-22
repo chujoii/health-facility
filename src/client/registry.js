@@ -32,8 +32,10 @@ Vue.component("tab-dt", {
 
 var appdt = new Vue({
 	el: '#doc_time',
-	data: {
-		seen: true,
+	data: function () {
+		return {
+			seen: true
+		}
 	},
 	methods: {
 		get_doc_time: function () {return array_doctor_time;},

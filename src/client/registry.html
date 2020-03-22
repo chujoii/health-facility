@@ -23,7 +23,9 @@
 
 		<fieldset id="user_info" v-if="seen">
 			<legend>Личная информация</legend>
-			<tab-ui title="шаг №2">
+			<tab-ui title="шаг №2"
+				v-on:uicheckin="do_uicheckin"
+				>
 			</tab-ui>
 		</fieldset>
 
