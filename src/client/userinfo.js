@@ -66,6 +66,7 @@ var appui = new Vue({
 		do_uicheckin: function (selected) {
 			console.log(selected);
 			this.seen = false;
+			apptic.seen = true;
 		}
 	}
 });

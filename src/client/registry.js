@@ -34,13 +34,15 @@ var appdt = new Vue({
 	el: '#doc_time',
 	data: function () {
 		return {
-			seen: true
+			seen: true,
+			ticket: undefined // fixme: not need
 		}
 	},
 	methods: {
 		get_doc_time: function () {return array_doctor_time;},
 		do_checkin: function (selected) {
 			console.log(selected);
+			this.ticket = selected;
 			this.seen = false;
 			appui.seen = true;
 		}

@@ -7,7 +7,9 @@
 		<!-- defer: script is executed when the page has finished parsing -->
 		<script type="application/javascript" src="registry.js" defer></script>
 		<script type="application/javascript" src="userinfo.js" defer></script>
+		<script type="application/javascript" src="ticket.js" defer></script>
 		<link rel="stylesheet" type="text/css" href="registry.css">
+		<link rel="stylesheet" type="text/css" href="ticket.css">
 	</head>
 	<body>
 		<fieldset id="doc_time" v-if="seen">
@@ -27,6 +29,16 @@
 				v-on:uicheckin="do_uicheckin"
 				>
 			</tab-ui>
+		</fieldset>
+
+
+
+		<fieldset id="ticket" v-if="seen">
+			<legend>И вас вылечат</legend>
+			<tab-tic title="шаг №3"
+				v-on:ticcheckin="do_ticcheckin"
+				>
+			</tab-tic>
 		</fieldset>
 
 	</body>
