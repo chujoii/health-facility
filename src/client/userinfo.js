@@ -2,6 +2,9 @@ Vue.component("tab-ui", {
 	props: ['title'],
 	data: function () {
 		return {
+			ticket: appdt.ticket,
+			doc: array_doctor_time[appdt.ticket.split(".")[0]].name, // fixme: ticket is not defined
+			tim: array_doctor_time[appdt.ticket.split(".")[0]].timetable[appdt.ticket.split(".")[1]], // fixme: ticket is not defined
 			name: '',
 			gender: true,
 			birthday: '',
@@ -14,7 +17,7 @@ Vue.component("tab-ui", {
 	template: `
 		<div id="tab-ui"> \
 			{{ title }} \
-			Заполните личные данные: \
+			Заполните личные данные<sup><a href="#userdata">[1]</a></sup>: \
 			<ul> \
 				<li> \
 					<div class="left">Фамилия Имя Отчество</div> \
@@ -50,7 +53,14 @@ Vue.component("tab-ui", {
 					<div class="right"><input v-model="phone" type="text" /></div> \
 				</li> \
 			</ul> \
-			<button v-on:click="$emit('uicheckin', {name: name, gender: gender, birthday: birthday, snils: snils, health_insurance: health_insurance, e_mail: e_mail, phone: phone})">Записаться</button> \
+			<button v-on:click="$emit('uicheckin', {id: ticket, doctor: doc, time: tim, name: name, gender: gender, birthday: birthday, snils: snils, health_insurance: health_insurance, e_mail: e_mail, phone: phone})">Записаться</button> \
+			<ol> \
+				<li id="userdata">Заполняя личные данные и нажимая кнопку отправки данных, \
+				вы автоматически соглашаетесь с деанонимизацией, \
+				а также использованием этих данных включая, но не ограничиваясь \
+				корыстными целями</li> \
+			</ol> \
+
 		</div> \
 `
 });
@@ -64,6 +74,7 @@ var appui = new Vue({
 	},
 	methods: {
 		do_uicheckin: function (selected) {
+			register_ticket(selected);
 			console.log(selected);
 			this.seen = false;
 			apptic.seen = true;

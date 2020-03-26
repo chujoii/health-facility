@@ -19,7 +19,7 @@ Vue.component("tab-dt", {
 						{{doc.name}} \
 					</td> \
 					<td v-for="(tim, id_y) in doc.timetable"> \
-						<input type="radio" v-model="picked" :value="'' + id_x + ':' + id_y" /> \
+						<input type="radio" v-model="picked" :value="'' + id_x + '.' + id_y" /> \
 						<label for=doctors[id_x][id_y]>{{tim}}</label> \
 					</td> \
 				</tr> \
