@@ -9,7 +9,7 @@ Vue.component("tab-tic", {
 	},
 	template: `
 		<div id="tab-tic"> \
-			Ваш талон<sup><a href="#visa">[1]</a></sup>:<br> \
+			Ваш талон<sup><a href="#visa">[1,2]</a></sup>:<br> \
 			<div class="ticket"><span class="circle"></span><a href="#"> \
 			{{String(ticket[0]).padStart(2, '0')}},{{String(ticket[1]).padStart(2, '0')}} \
 			</a> \
@@ -19,6 +19,8 @@ Vue.component("tab-tic", {
 				<li id="visa">Распечатанный или переписанный от руки талон, \
 				необходимо завизировать в регистратуре синей печатью, \
 				с 6 до 7 часов завтрашнего утра</li> \
+				<li>Для отказа от записи: \
+				<button v-on:click="$emit('ticketback')">Вернуться</button></li> \
 			</ol> \
 		</div> \
 `
@@ -32,9 +34,9 @@ var apptic = new Vue({
 		}
 	},
 	methods: {
-		do_ticcheckin: function (selected) {
-			console.log(selected);
+		do_go_back: function () {
 			this.seen = false;
+			appdt.seen = true;
 		}
 	}
 });

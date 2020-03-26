@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Danger: do not use shell scripts in real server!
-# Danger: script create files it /tmp directory!
+# Danger: script create files in /tmp directory!
 
 echo Content-type: text/html
 echo

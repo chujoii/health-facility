@@ -9,6 +9,7 @@
 		<script type="application/javascript" src="registry.js" defer></script>
 		<script type="application/javascript" src="userinfo.js" defer></script>
 		<script type="application/javascript" src="ticket.js" defer></script>
+		<script type="application/javascript" src="unreg.js" defer></script>
 		<link rel="stylesheet" type="text/css" href="registry.css">
 		<link rel="stylesheet" type="text/css" href="ticket.css">
 	</head>
@@ -35,12 +36,21 @@
 
 
 		<fieldset id="ticket" v-if="seen">
-			<legend>И вас вылечат</legend>
+			<legend>Выдача талона</legend>
 			<tab-tic title="шаг №3"
-				v-on:ticcheckin="do_ticcheckin"
+				v-on:ticketback="do_go_back"
 				>
 			</tab-tic>
 		</fieldset>
 
+
+
+		<fieldset id="unregister" v-if="seen">
+			<legend>Отмена записи</legend>
+			<tab-unreg title="шаг №4"
+				v-on:ticuncheckin="do_ticuncheckin"
+				>
+			</tab-unreg>
+		</fieldset>
 	</body>
 </html>
