@@ -2,8 +2,17 @@ Vue.component("tab-dt", {
 	props: ['title', 'doctors'],
 	data: function () {
 		return {
-			picked: ''
+			picked: '',
+			list_of_regs: ['0.1','0.2']
 		}
+	},
+	created: function() {
+			let promise = list_of_reg_ticket();
+			let res;
+			promise.then(
+				result => this.list_of_regs = result,
+				error => alert(error)
+			);
 	},
 	template: `
 		<div id="tab-dt"> \
@@ -19,13 +28,22 @@ Vue.component("tab-dt", {
 						{{doc.name}} \
 					</td> \
 					<td v-for="(tim, id_y) in doc.timetable"> \
+						<div class="ticket" v-if="list_of_regs.includes('' + id_x + '.' + id_y)"> \
+						<input class="circle" type="radio" v-model="picked" :value="'' + id_x + '.' + id_y" /> \
+						<a href="#"> {{tim}} </a> \
+						</div> \
+						<div v-else> \
 						<input type="radio" v-model="picked" :value="'' + id_x + '.' + id_y" /> \
 						<label for=doctors[id_x][id_y]>{{tim}}</label> \
+						</div>
 					</td> \
 				</tr> \
 			</table> \
 			Выбрано: {{ picked }} \
-			<button v-if="picked!==''" v-on:click="$emit('checkin', picked)">Записаться</button> \
+			<span v-if="picked!==''"> \
+				<button v-if="list_of_regs.includes(picked)" v-on:click="$emit('checkout', picked)">Отказаться</button> \
+				<button v-else v-on:click="$emit('checkin', picked)">Записаться</button> \
+			</span> \
 		</div> \
 `
 });
@@ -45,6 +63,12 @@ var appdt = new Vue({
 			this.ticket = selected;
 			this.seen = false;
 			appui.seen = true;
+		},
+		do_checkout: function (selected) {
+			console.log(selected);
+			this.ticket = selected;
+			this.seen = false;
+			appunreg.seen = true;
 		}
 	}
 });

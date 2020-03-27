@@ -19,6 +19,8 @@
 			<tab-dt title="шаг №1"
 				v-bind:doctors="get_doc_time()"
 				v-on:checkin="do_checkin"
+				v-on:checkout="do_checkout"
+				ref="foo"
 				>
 			</tab-dt>
 		</fieldset>
