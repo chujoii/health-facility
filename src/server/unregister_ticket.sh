@@ -21,8 +21,8 @@ echo '<pre>'
 [ -z "$QUERY_STRING_POST"  -a "$REQUEST_METHOD" = "POST" -a ! -z "$CONTENT_LENGTH" ] && read -n $CONTENT_LENGTH QUERY_STRING_POST
 echo $QUERY_STRING_POST
 
-FILE_NAME=`echo $QUERY_STRING_POST | perl -ne 'while(/(?<=id":")[0-9.]+/g){print "$&\n";}'`
-rm "/tmp/$FILE_NAME.txt"
+FILE_NAME=`echo $QUERY_STRING_POST | egrep -o '[0-9]+\.[0-9]+'`
+rm -f "/tmp/$FILE_NAME.txt"
 
 echo '</pre>'
 
