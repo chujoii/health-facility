@@ -11,7 +11,7 @@ This file is part of health-facility.
 health facility registry Vue.js JavaScript
 
 * Description:
-Single-page application
+Single-page application writen with Vue.js
 
 * Usage:
 View in browser with JavaScript support.
@@ -22,3 +22,12 @@ Initial project version began about 2020-03(Mar)-17
 * Dependences:
 ** [[https://vuejs.org][Vue.js]] JavaScript framework
 [[https://vuejs.org/js/vue.js][development version]] or [[https://vuejs.org/js/vue.min.js][production version]]
+
+* TODO list:
++ use form validation
++ add documentation, manual
++ rewrite server script (from sh to: Java, Python, ...)
++ add users
++ remove debug print (alert, console.log)
++ use webpack
++ use pug, sass
