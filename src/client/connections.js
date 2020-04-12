@@ -1,3 +1,5 @@
+"use strict";
+
 async function list_of_reg_ticket () {
 	let response = await fetch('../cgi-bin/list_of_reg_ticket.sh');
 

@@ -1,3 +1,5 @@
+"use strict";
+
 var array_doctor_time = [ // fixme: move to external database
 	{name: 'доктор Айболит',
 	 timetable: [1, 2, 3, 4]},

@@ -1,3 +1,5 @@
+"use strict";
+
 Vue.component("tab-dt", {
 	props: ['title', 'doctors'],
 	data: function () {

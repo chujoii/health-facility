@@ -1,3 +1,5 @@
+"use strict";
+
 Vue.component("tab-tic", {
 	props: ['title'],
 	data: function () {

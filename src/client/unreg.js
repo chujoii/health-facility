@@ -1,3 +1,5 @@
+"use strict";
+
 Vue.component("tab-unreg", {
 	props: ['title'],
 	data: function () {
