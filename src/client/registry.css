@@ -18,12 +18,14 @@ th {
 	width: 30%;
 	float: left;
 	text-align: right;
+	margin-top: 1em;
 }
 
 .right {
 	width: 65%;
 	margin-left: 10px;
 	float: left;
+	margin-top: 1em;
 }
 
 ul {
@@ -48,3 +50,12 @@ legend {
 	color: white;
 	padding: 3px 10px;
 }
+
+input:invalid {
+	border: 1px solid red;
+}
+/*
+input:valid {
+	border: 1px solid black;
+}
+*/

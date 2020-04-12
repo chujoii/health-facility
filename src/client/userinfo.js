@@ -19,40 +19,40 @@ Vue.component("tab-ui", {
 	template: `
 		<div id="tab-ui"> \
 			{{ title }} \
-			Заполните личные данные<sup><a href="#userdata">[1]</a></sup>: \
+			Заполните личные данные<sup><a href="#userdata">[1]</a><a href="#testonly">[2]</a></sup>: \
 			<ul> \
 				<li> \
 					<div class="left">Фамилия Имя Отчество</div> \
-					<div class="right"><input v-model="name" type="text" /></div> \
+					<div class="right"><input v-model="name" type="text" required /></div> \
 				</li> \
 				<li> \
 					<div class="left">пол</div> \
 					<div class="right"> \
-						<input type="radio" id="male" name="gender" value="male" v-model="gender"> \
+						<input type="radio" id="male" name="gender" value="male" v-model="gender" required /> \
 						<label for="male">Мужсокй</label> \
-						<input type="radio" id="female" name="gender" value="female" v-model="gender"> \
+						<input type="radio" id="female" name="gender" value="female" v-model="gender" required /> \
 						<label for="female">Женский</label><br> \
 					</div> \
 				</li> \
 				<li> \
 					<div class="left">дата рождения (<!-- ISO 8601 -->ГГГГ-ММ-ДД)</div> \
-					<div class="right"><input v-model="birthday" type="text" /></div> \
+					<div class="right"><input v-model="birthday" type="text" required /></div> \
 				</li> \
 				<li> \
 					<div class="left">СНИЛС</div> \
-					<div class="right"><input v-model="snils" type="text" /></div> \
+					<div class="right"><input v-model="snils" type="text" required /></div> \
 				</li> \
 				<li> \
 					<div class="left">серия и номер полиса</div> \
-					<div class="right"><input v-model="health_insurance" type="text" /></div> \
+					<div class="right"><input v-model="health_insurance" type="text" required /></div> \
 				</li> \
 				<li> \
 					<div class="left">электронная почта</div> \
-					<div class="right"><input v-model="e_mail" type="text" value="@" /></div> \
+					<div class="right"><input v-model="e_mail" type="text" required /></div> \
 				</li> \
 				<li> \
 					<div class="left">номер телефона для связи</div> \
-					<div class="right"><input v-model="phone" type="text" /></div> \
+					<div class="right"><input v-model="phone" type="text" required /></div> \
 				</li> \
 			</ul> \
 			<button v-on:click="$emit('uicheckin', {id: ticket, doctor: doc, time: tim, name: name, gender: gender, birthday: birthday, snils: snils, health_insurance: health_insurance, e_mail: e_mail, phone: phone})">Записаться</button> \
@@ -61,6 +61,9 @@ Vue.component("tab-ui", {
 				вы автоматически соглашаетесь с деанонимизацией, \
 				а также использованием этих данных включая, но не ограничиваясь \
 				корыстными целями</li> \
+				<li id="testonly">Не вводите ваши реальные данные, \
+				данная форма разработана только для тестирования \
+				</li> \
 			</ol> \
 
 		</div> \

@@ -12,7 +12,7 @@ Vue.component("tab-unreg", {
 		<div id="tab-unreg"> \
 			{{ title }} \
 			Объяснительная: \
-			<input v-model="explain" type="text" /> <br/> \
+			<input v-model="explain" type="text" required /> <br/> \
 			<button v-on:click="$emit('ticuncheckin', ticket)">Да</button> \
 		</div> \
 `
