@@ -44,8 +44,11 @@ Vue.component("tab-ui", {
 					/></div> \
 				</li> \
 				<li> \
-					<div class="left">СНИЛС</div> \
-					<div class="right"><input v-model="snils" type="text" required /></div> \
+					<!-- fixme: need check last numbers: checksum --> \
+					<div class="left">СНИЛС (ХХХ-ХХХ-ХХХ YY)</div> \
+					<div class="right"><input v-model="snils" type="text" \
+					required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}[ -][0-9]{2}" \
+					/></div> \
 				</li> \
 				<li> \
 					<div class="left">серия и номер полиса</div> \
