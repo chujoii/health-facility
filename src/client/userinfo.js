@@ -17,7 +17,7 @@ Vue.component("tab-ui", {
 		}
 	},
 	template: `
-		<div id="tab-ui"> \
+		<form id="tab-ui" v-on:submit="$emit('uicheckin', {id: ticket, doctor: doc, time: tim, name: name, gender: gender, birthday: birthday, snils: snils, health_insurance: health_insurance, e_mail: e_mail, phone: phone})"> \
 			{{ title }} \
 			Заполните личные данные<sup><a href="#userdata">[1]</a><a href="#testonly">[2]</a></sup>: \
 			<ul> \
@@ -67,7 +67,7 @@ Vue.component("tab-ui", {
 					/></div> \
 				</li> \
 			</ul> \
-			<button v-on:click="$emit('uicheckin', {id: ticket, doctor: doc, time: tim, name: name, gender: gender, birthday: birthday, snils: snils, health_insurance: health_insurance, e_mail: e_mail, phone: phone})">Записаться</button> \
+			<input type="submit" value="Записаться"> \
 			<ol> \
 				<li id="userdata">Заполняя личные данные и нажимая кнопку отправки данных, \
 				вы автоматически соглашаетесь с деанонимизацией, \
@@ -77,8 +77,7 @@ Vue.component("tab-ui", {
 				данная форма разработана только для тестирования \
 				</li> \
 			</ol> \
-
-		</div> \
+		</form> \
 `
 });
 
