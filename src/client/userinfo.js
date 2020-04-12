@@ -37,8 +37,11 @@ Vue.component("tab-ui", {
 					</div> \
 				</li> \
 				<li> \
+					<!-- fixme: limit year 1900-2099, day of mont not check month length --> \
 					<div class="left">дата рождения (<!-- ISO 8601 -->ГГГГ-ММ-ДД)</div> \
-					<div class="right"><input v-model="birthday" type="text" required /></div> \
+					<div class="right"><input v-model="birthday" type="text" \
+					required pattern="(19|20)[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|(1|2)[0-9]|3[01])" \
+					/></div> \
 				</li> \
 				<li> \
 					<div class="left">СНИЛС</div> \
