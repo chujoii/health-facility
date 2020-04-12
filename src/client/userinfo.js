@@ -23,7 +23,9 @@ Vue.component("tab-ui", {
 			<ul> \
 				<li> \
 					<div class="left">Фамилия Имя Отчество</div> \
-					<div class="right"><input v-model="name" type="text" required /></div> \
+					<div class="right"><input v-model="name" type="text" \
+					required minlength="3" maxlength="127" pattern="[-., a-zA-Zа-яА-Я0-9]+" \
+					/></div> \
 				</li> \
 				<li> \
 					<div class="left">пол</div> \
