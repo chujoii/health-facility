@@ -51,8 +51,10 @@ Vue.component("tab-ui", {
 					/></div> \
 				</li> \
 				<li> \
-					<div class="left">серия и номер полиса</div> \
-					<div class="right"><input v-model="health_insurance" type="text" required /></div> \
+					<div class="left">серия и номер полиса (11 цифр)</div> \
+					<div class="right"><input v-model="health_insurance" type="text" \
+					required pattern="[0-9]{11}" \
+					/></div> \
 				</li> \
 				<li> \
 					<div class="left">электронная почта</div> \
