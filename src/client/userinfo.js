@@ -48,7 +48,7 @@ Vue.component("tab-ui", {
 				</li> \
 				<li> \
 					<div class="left">электронная почта</div> \
-					<div class="right"><input v-model="e_mail" type="text" required /></div> \
+					<div class="right"><input v-model="e_mail" type="email" required /></div> \
 				</li> \
 				<li> \
 					<div class="left">номер телефона для связи</div> \
