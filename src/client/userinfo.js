@@ -62,7 +62,9 @@ Vue.component("tab-ui", {
 				</li> \
 				<li> \
 					<div class="left">номер телефона для связи</div> \
-					<div class="right"><input v-model="phone" type="text" required /></div> \
+					<div class="right"><input v-model="phone" type="text" \
+					required pattern="[-+ ()#.,;0-9]{3,32}" \
+					/></div> \
 				</li> \
 			</ul> \
 			<button v-on:click="$emit('uicheckin', {id: ticket, doctor: doc, time: tim, name: name, gender: gender, birthday: birthday, snils: snils, health_insurance: health_insurance, e_mail: e_mail, phone: phone})">Записаться</button> \
